@@ -6,6 +6,12 @@ import { withinApp } from "../../utils";
 // "share tutorial" modal, since there is no action to attempt, but
 // doing so keeps the approach consistent.
 
+export function sharingUrlFromSlug(slug: string): string {
+  const relativeUrl = withinApp(`/suggested-tutorial/${slug}`);
+  const url = new URL(relativeUrl, window.location.href);
+  return url.toString();
+}
+
 type IShareTutorialBase = IModalUserInteraction<void>;
 
 type TutorialShareInfo = {
