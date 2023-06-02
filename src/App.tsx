@@ -42,6 +42,7 @@ function App() {
         <TutorialList path="/tutorials/" />
         <IDE path="/ide/:projectIdString" />
         <SingleTutorial path="/suggested-tutorial/:slug" />
+        <SingleTutorial path="/suggested-tutorial-demo/:slug" />
         <DemoFromZipfileURL path="/suggested-demo/:buildId/:demoId" />
         <UnknownRoute default />
       </Router>
