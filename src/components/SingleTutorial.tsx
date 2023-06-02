@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { navigate, RouteComponentProps } from "@reach/router";
 import { SyncState } from "../model/project";
-import { ITutorialSummary } from "../model/tutorials";
+import { ITutorialSummary, SingleTutorialDisplayKind } from "../model/tutorials";
 import { useStoreActions, useStoreState } from "../store";
 import { withinApp } from "../utils";
 import Button from "react-bootstrap/Button";
@@ -18,6 +18,7 @@ interface SingleTutorialContentProps {
   targetSlug: string;
   syncState: SyncState;
   availableSummaries: Array<ITutorialSummary>;
+  targetKind: SingleTutorialDisplayKind;
 }
 
 const SingleTutorialContent: React.FC<SingleTutorialContentProps> = (props) => {
@@ -50,13 +51,14 @@ const SingleTutorialContent: React.FC<SingleTutorialContentProps> = (props) => {
 
   return (
     <ul className="tutorial-list">
-      <TutorialSummaryDisplay tutorial={requestedTutorial} />
+      <TutorialSummaryDisplay tutorial={requestedTutorial} kind={props.targetKind}/>
     </ul>
   );
 };
 
 interface SingleTutorialProps extends RouteComponentProps {
   slug?: string;
+  kind: SingleTutorialDisplayKind;
 }
 
 export const SingleTutorial: React.FC<SingleTutorialProps> = (props) => {
@@ -89,6 +91,7 @@ export const SingleTutorial: React.FC<SingleTutorialProps> = (props) => {
           availableSummaries={available}
           targetSlug={props.slug}
           syncState={syncState}
+          targetKind={props.kind}
         />
         <p className="button-wrapper">
           <Button

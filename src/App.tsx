@@ -41,8 +41,8 @@ function App() {
         <ProjectList path="/my-projects/" />
         <TutorialList path="/tutorials/" />
         <IDE path="/ide/:projectIdString" />
-        <SingleTutorial path="/suggested-tutorial/:slug" />
-        <SingleTutorial path="/suggested-tutorial-demo/:slug" />
+        <SingleTutorial path="/suggested-tutorial/:slug" kind="tutorial-only" />
+        <SingleTutorial path="/suggested-tutorial-demo/:slug" kind="tutorial-and-demo" />
         <DemoFromZipfileURL path="/suggested-demo/:buildId/:demoId" />
         <UnknownRoute default />
       </Router>
