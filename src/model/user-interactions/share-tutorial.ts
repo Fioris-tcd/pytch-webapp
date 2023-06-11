@@ -7,7 +7,12 @@ import { withinApp } from "../../utils";
 // doing so keeps the approach consistent.
 
 export function sharingUrlFromSlug(slug: string): string {
-  const relativeUrl = withinApp(`/suggested-tutorial/${slug}`);
+  const baseUrl = "/suggested-tutorial/";
+  return sharingUrlFromUrlComponents(baseUrl, slug);
+}
+
+function sharingUrlFromUrlComponents(baseUrl: string, slug: string) {
+  const relativeUrl = withinApp(`${baseUrl}${slug}`);
   const url = new URL(relativeUrl, window.location.href);
   return url.toString();
 }
