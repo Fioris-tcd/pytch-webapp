@@ -10,7 +10,10 @@ export function sharingUrlFromSlug(slug: string): string {
   const baseUrl = "/suggested-tutorial/";
   return sharingUrlFromUrlComponents(baseUrl, slug);
 }
-
+export function sharingUrlFromSlugForDemo(slug: string): string {
+  const baseUrl = "/suggested-tutorial-demo/";
+  return sharingUrlFromUrlComponents(baseUrl, slug);
+}
 function sharingUrlFromUrlComponents(baseUrl: string, slug: string) {
   const relativeUrl = withinApp(`${baseUrl}${slug}`);
   const url = new URL(relativeUrl, window.location.href);
