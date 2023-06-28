@@ -11,7 +11,7 @@ import {
   NonMethodBlockElementDescriptor,
   PurePythonElementDescriptor,
 } from "../model/help-sidebar";
-import { assertNever } from "../utils";
+import { assertNever, copyTextToClipboard } from "../utils";
 import classNames from "classnames";
 
 const HeadingElement: React.FC<HeadingElementDescriptor> = (props) => {
@@ -35,7 +35,7 @@ const MaybeCopyButton: React.FC<{ pythonToCopy?: string }> = (props) => {
       className="copy-button"
       variant="outline-success"
       onClick={() => {
-        navigator.clipboard.writeText(props.pythonToCopy!);
+        copyTextToClipboard(props.pythonToCopy!);
       }}
     >
       <FontAwesomeIcon className="fa-lg" icon="copy" />
