@@ -64,6 +64,19 @@ export const loadScript = (
     scriptElt.src = src;
   });
 
+export async function copyTextToClipboard(text: string){
+  try {
+    await navigator.clipboard.writeText(text);
+  } catch (err) {
+    console.log(
+      "Could not copy to clipboard",
+      "(an error is expected if running under Cypress):",
+      err
+    );
+  }
+  PYTCH_CYPRESS()["latestTextCopied"] = text;
+}
+
 export function getPropertyByPath(target: any, pathStr: string) {
   const path = pathStr.split(".");
   return path.reduce((acc, cur) => acc[cur] ?? {}, target);
