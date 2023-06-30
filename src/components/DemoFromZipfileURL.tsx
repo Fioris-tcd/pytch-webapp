@@ -53,11 +53,12 @@ export const DemoFromZipfileURL: React.FC<DemoFromZipfileURLProps> = (
             <h1>{demoState.projectDescriptor.name}</h1>
             <div className="button-bar">
               <Button
+                title="Try this project"
                 disabled={isCreating}
                 variant="outline-primary"
                 onClick={() => createProject()}
               >
-                Try this project
+                Demo
               </Button>
             </div>
           </>
